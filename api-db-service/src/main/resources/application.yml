@@ -1,0 +1,36 @@
+server:
+  port: 9005
+
+spring:
+  application:
+    name: api-db-service
+  #db
+  datasource:
+    url: jdbc:mysql://localhost:3306/test_api_db
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+
+#logs
+logging:
+  level:
+    com: debug
+    '[com.zaxxer.hikari]': error
+    org: error
+
+#eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9004/eureka/
+  instance:
+    prefer-ip-address: false
+
+com:
+  example:
+    demo:
+      db:
+        data-setup: true
